@@ -34,17 +34,17 @@
 
             <!-- Navigation Links -->
             <div id="menu" class="hidden md:flex space-x-6">
-            <a getLoc="#home" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
+            <a href="#home" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
                 Home
                 <span
                 class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a getLoc="#projects" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
+            <a href="#projects" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
                 Projecten
                 <span
                 class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a getLoc="#contact" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
+            <a href="#contact" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
                 Contact
                 <span
                 class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
@@ -133,50 +133,57 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="mx-auto py-5 px-4 bg-white rounded-lg shadow-2xl max-w-lg mb-20 mt-[50vh]">
-        <h2 class="text-4xl font-extrabold text-center text-gray-900">Contact</h2>
-        <div class="space-y-6 text-center mt-6">
-            <p class="text-lg text-gray-700">Neem contact met mij op via:</p>
-            <div class="flex flex-col items-center space-y-4">
-                <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-6 h-6 text-blue-600">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3 10l9-7 9 7-9 7-9-7z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M9 21V9l-6 4.5M15 21V9l6 4.5" />
-                    </svg>
-                    <span class="text-gray-700 font-medium">Telefoon: +31 6 12345678</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-6 h-6 text-blue-600">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16.5 3.5a4.5 4.5 0 00-9 0v1.25a4.5 4.5 0 00-3 4.25v6.5a4.5 4.5 0 004.5 4.5h6a4.5 4.5 0 004.5-4.5v-6.5a4.5 4.5 0 00-3-4.25V3.5z" />
-                    </svg>
-                    <span class="text-gray-700 font-medium">E-mail: emrah@example.com</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-6 h-6 text-blue-600">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9" />
-                    </svg>
-                    <a href="https://www.linkedin.com/in/emrahbalija" target="_blank"
-                        class="text-blue-600 hover:underline">LinkedIn</a>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-6 h-6 text-blue-600">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M8 12l2-2m0 0l2 2m-2-2v6m4-6l2-2m0 0l2 2m-2-2v6" />
-                    </svg>
-                    <a href="https://github.com/emrahbalija" target="_blank"
-                        class="text-blue-600 hover:underline">GitHub</a>
+    <section id="contact" class="mx-auto py-5 px-4 bg-white rounded-lg shadow-2xl max-w-4xl mb-20 mt-[50vh] flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
+        <!-- Contact Info -->
+        <div class="flex-1"></div></div>
+            <h2 class="text-4xl font-extrabold text-center md:text-left text-gray-900">Contact</h2>
+            <div class="space-y-6 text-center md:text-left mt-6">
+                <p class="text-lg text-gray-700">Neem contact met mij op via:</p>
+                <div class="flex flex-col items-center md:items-start space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-6 h-6 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 10l9-7 9 7-9 7-9-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 21V9l-6 4.5M15 21V9l6 4.5" />
+                        </svg>
+                        <span class="text-gray-700 font-medium">E-mail: emrahbalija@gmail.com</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-6 h-6 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9" />
+                        </svg>
+                        <a href="https://www.linkedin.com/in/emrah-balija-b32945273/" target="_blank"
+                            class="text-blue-600 hover:un</div>derline">LinkedIn</a>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-6 h-6 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 12l2-2m0 0l2 2m-2-2v6m4-6l2-2m0 0l2 2m-2-2v6" />
+                        </svg>
+                        <a href="https://github.com/emrah2810" target="_blank"
+                            class="text-blue-600 hover:underline">GitHub</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+        <!-- Contact Image -->
+        <div class="flex-1">
+            <img src="../images/Emrah.jpeg" alt="Contact Image" class="rounded-lg shadow-lg w-full h-auto">
+        </div>
+    </section><span class="text-gray-700 font-medium">Telefoon: +31 6 12345678</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" class="w-6 h-6 text-blue-600">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.5 3.5a4.5 4.5 0 00-9 0v1.25a4.5 4.5 0 00-3 4.25v6.5a4.5 4.5 0 004.5 4.5h6a4.5 4.5 0 004.5-4.5v-6.5a4.5 4.5 0 00-3-4.25V3.5z" />
+                        </svg>
+                        
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white text-center py-4">
