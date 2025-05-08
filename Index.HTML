@@ -19,91 +19,163 @@
 <body class="bg-gradient-to-r from-blue-800 to-blue-300 text-gray-100 font-sans">
     <!-- Navigatie -->
     <nav class="bg-transparent text-white fixed w-full z-10 font-sans"></nav>
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <!-- Logo -->
-            <div class="text-2xl font-extrabold tracking-wide">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <!-- Logo -->
+        <div class="text-2xl font-extrabold tracking-wide">
             <a href="#home" class="hover:text-pink-400 transition duration-300">Mijn Portfolio</a>
-            </div>
+        </div>
 
-            <!-- Hamburger Menu (Mobile) -->
-            <div class="md:hidden">
+        <!-- Hamburger Menu (Mobile) -->
+        <div class="md:hidden">
             <button id="menu-toggle" class="text-3xl focus:outline-none">
                 &#9776;
             </button>
-            </div>
+        </div>
 
-            <!-- Navigation Links -->
-            <div id="menu" class="hidden md:flex space-x-6">
-            <a href="#home" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
+        <!-- Navigation Links -->
+        <div id="menu" class="hidden md:flex space-x-6">
+            <a href="#home"
+                class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
                 Home
                 <span
-                class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#projects" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
+            <a href="#projects"
+                class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
                 Projecten
                 <span
-                class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="#contact" class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
+            <a href="#contact"
+                class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
                 Contact
                 <span
-                class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
             </a>
-            </div>
         </div>
+    </div>
     </nav>
 
 
-<!-- Header -->
-<header id="home" class="h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('https://placekitten.com/1920/1080');">
-    <div class="text-center bg-white bg-opacity-90 p-12 max-w-5xl w-full rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500">
-        <div class="profile-pic mb-6">
-            <img src="../images/Emrah.png" alt="Profiel Foto" class="w-80 h-80 rounded-full mx-auto border-4 border-gray-800 shadow-lg">
-        </div>
-        <h1 class="text-5xl font-extrabold mb-4 text-gray-900">Welkom! Ik ben <span class="text-blue-600">Emrah Balija</span></h1>
-        <p class="text-xl mb-6 text-gray-700">Webontwikkelaar met een passie voor moderne, responsieve en dynamische websites.</p>
-        <div class="buttons space-x-6">
-            <a href="#projects" class="bg-blue-600 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Mijn Werk</a>
-            <a href="#contact" class="bg-gray-800 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-gray-900 transition duration-300">Contact</a>
-        </div>
-    </div>
-</header>
-<!-- About Me -->
-<section id="about" class="bg-gray-100 py-16 px-4">
-    <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Over Mij</h2>
-        <p class="text-lg text-gray-700 mb-6">
-            Hallo! Mijn naam is Emrah Balija, een gepassioneerde webontwikkelaar met een oog voor detail en een liefde voor moderne technologieën. 
-            Ik streef ernaar om dynamische, responsieve en gebruiksvriendelijke websites te creëren die een blijvende indruk achterlaten.
-        </p>
-        <div class="skills grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="skill bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">HTML & CSS</h3>
-                <p class="text-gray-600">Ervaren in het bouwen van semantische en goed gestructureerde webpagina's.</p>
+    <!-- Header -->
+    <header id="home" class="h-screen bg-cover bg-center flex items-center justify-center"
+        style="background-image: url('https://placekitten.com/1920/1080');">
+        <div
+            class="text-center bg-white bg-opacity-90 p-12 max-w-5xl w-full rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500">
+            <div class="profile-pic mb-6">
+                <img src="../images/Emrah.png" alt="Profiel Foto"
+                    class="w-80 h-80 rounded-full mx-auto border-4 border-gray-800 shadow-lg">
             </div>
-            <div class="skill bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">JavaScript</h3>
-                <p class="text-gray-600">Bekwaam in het toevoegen van interactiviteit en dynamiek aan websites.</p>
-            </div>
-            <div class="skill bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">React & Vue.js</h3>
-                <p class="text-gray-600">Ervaring met moderne frameworks voor het bouwen van schaalbare applicaties.</p>
-            </div>
-            <div class="skill bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Back-end Development</h3>
-                <p class="text-gray-600">Kennis van Node.js en Express voor server-side ontwikkeling.</p>
-            </div>
-            <div class="skill bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Responsive Design</h3>
-                <p class="text-gray-600">Expertise in het maken van websites die er geweldig uitzien op elk apparaat.</p>
-            </div>
-            <div class="skill bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Teamwork</h3>
-                <p class="text-gray-600">Sterke samenwerkingsvaardigheden en ervaring met Agile-methodologieën.</p>
+            <h1 class="text-5xl font-extrabold mb-4 text-gray-900">Welkom! Ik ben <span class="text-blue-600">Emrah
+                    Balija</span></h1>
+            <p class="text-xl mb-6 text-gray-700">Webontwikkelaar met een passie voor moderne, responsieve en dynamische
+                websites.</p>
+            <div class="buttons space-x-6">
+                <a href="#projects"
+                    class="bg-blue-600 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Mijn
+                    Werk</a>
+                <a href="#contact"
+                    class="bg-gray-800 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-gray-900 transition duration-300">Contact</a>
             </div>
         </div>
-    </div>
-</section>
+    </header>
+    <!-- About Me -->
+    <section id="about" class="bg-white py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Over Mij</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Hallo! Mijn naam is Emrah Balija, een gepassioneerde webontwikkelaar met een oog voor detail en een
+                liefde voor moderne technologieën.
+                Ik streef ernaar om dynamische, responsieve en gebruiksvriendelijke websites te creëren die een
+                blijvende indruk achterlaten.
+            </p>
+            <div class="skills grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Icon"
+                        class="w-12 h-12 animate-bounce">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">HTML & CSS</h3>
+                        <p class="text-gray-600">Ervaren in het bouwen van semantische en goed gestructureerde webpagina's.
+                        </p>
+                    </div>
+                </div>
+                <div class="skill bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript Icon" class="w-12 h-12 animate-bounce">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">JavaScript</h3>
+                        <p class="text-gray-600">Bekwaam in het toevoegen van interactiviteit en dynamiek aan websites.</p>
+                    </div>
+                </div>
+                <div class="skill bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Icon"
+                        class="w-12 h-12 animate-bounce">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">React & Vue.js</h3>
+                        <p class="text-gray-600">Ervaring met moderne frameworks voor het bouwen van schaalbare applicaties.
+                        </p>
+                    </div>
+                </div>
+                <div class="skill bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        alt="Node.js Icon" class="w-12 h-12 animate-bounce">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Back-end Development</h3>
+                        <p class="text-gray-600">Kennis van Node.js en Express voor server-side ontwikkeling.</p>
+                    </div>
+                </div>
+                <div class="skill bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/responsive/responsive-original.svg"
+                        alt="Responsive Design Icon" class="w-12 h-12 animate-bounce">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Responsive Design</h3>
+                        <p class="text-gray-600">Expertise in het maken van websites die er geweldig uitzien op elk
+                            apparaat.</p>
+                    </div>
+                </div>
+                <div class="skill bg-white rounded-lg shadow-lg p-6 flex items-center space-x-4">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/agile/agile-original.svg"
+                        alt="Teamwork Icon" class="w-12 h-12 animate-bounce">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Teamwork</h3>
+                        <p class="text-gray-600">Sterke samenwerkingsvaardigheden en ervaring met Agile-methodologieën.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Animated Line -->
+        <div class="relative mt-12">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-full h-1 bg-gradient-to-r from-blue-500 to-pink-500 animate-pulse"></div>
+            </div>
+            <div class="flex justify-between items-center relative z-10">
+                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Icon"
+                        class="w-8 h-8">
+                </span>
+                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript Icon" class="w-8 h-8">
+                </span>
+                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Icon"
+                        class="w-8 h-8">
+                </span>
+                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        alt="Node.js Icon" class="w-8 h-8">
+                </span>
+                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/responsive/responsive-original.svg"
+                        alt="Responsive Design Icon" class="w-8 h-8">
+                </span>
+                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/agile/agile-original.svg" alt="Agile Icon"
+                        class="w-8 h-8">
+                </span>
+            </div>
+        </div>
+    </section>
 
     <!-- Projecten -->
     <section id="projects" class="container mx-auto py-16 px-4">
@@ -113,7 +185,8 @@
                 class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="../images/Tambien.png" alt="Project 1" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900"><a href="../peages/Project1.html">Project 1</a> </h3>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900"><a href="../peages/Project1.html">Project 1</a>
+                    </h3>
                     <p class="text-gray-600">Stage project</p>
                 </div>
             </div>
@@ -121,7 +194,8 @@
                 class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                 <img src="../images/Tambien.png" alt="Project 2" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900"><a href="../peages/Project2.html">Project 2</a></h3>
+                    <h3 class="text-xl font-bold mb-2 text-gray-900"><a href="../peages/Project2.html">Project 2</a>
+                    </h3>
                     <p class="text-gray-600">Korte beschrijving van het project.</p>
                 </div>
             </div>
@@ -167,62 +241,83 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="mx-auto py-16 px-4 bg-white rounded-lg shadow-2xl max-w-4xl mb-20 mt-[50vh] flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-6">
+    <section id="contact"
+        class="mx-auto py-16 px-8 bg-white rounded-lg shadow-2xl max-w-5xl mb-20 mt-[50vh] flex flex-col items-center space-y-6">
         <!-- Contact Info -->
-        <div class="flex-1"></div>
-            <h2 class="text-4xl font-extrabold text-center md:text-left text-gray-900">Contact</h2>
-            <div class="space-y-6 text-center md:text-left mt-6">
-                <p class="text-lg text-gray-700">Neem contact met mij op via:</p>
-                <div class="flex flex-col items-center md:items-start space-y-4">
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-6 h-6 text-blue-600">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3 10l9-7 9 7-9 7-9-7z" />
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 21V9l-6 4.5M15 21V9l6 4.5" />
+        <h2 class="text-4xl font-extrabold text-center text-gray-900">Contact</h2>
+        <p class="text-lg text-gray-700 text-center">Neem contact met mij op via:</p>
+        <div class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 w-full">
+            <!-- Email -->
+            <div class="relative w-full max-w-[20rem]">
+                <label for="email-copy" class="sr-only">Email</label>
+                <input id="email-copy" type="text"
+                    class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-2.5 py-4"
+                    value="emrahbalija@gmail.com" disabled readonly>
+                <button data-copy-to-clipboard-target="email-copy"
+                    class="absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-900 hover:bg-gray-100 rounded-lg py-2 px-2.5 bg-white border-gray-200 border">
+                    <span class="inline-flex items-center">
+                        <svg class="w-3 h-3 mr-1.5" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 18 20">
+                            <path
+                                d="M16 1h-3.278A1.992 1.992 0 0 0 11 0H7a1.993 1.993 0 0 0-1.722 1H2a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2Zm-3 14H5a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2Zm0-4H5a1 1 0 0 1 0-2h8a1 1 0 1 1 0 2Zm0-5H5a1 1 0 0 1 0-2h2V2h4v2h2a1 1 0 1 1 0 2Z" />
                         </svg>
-                        <span class="text-gray-700 font-medium">E-mail: emrahbalija@gmail.com</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-6 h-6 text-blue-600">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9" />
-                        </svg>
-                        <a href="https://www.linkedin.com/in/emrah-balija-b32945273/" target="_blank"
-                            class="text-blue-600 hover:underline">LinkedIn</a>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-6 h-6 text-blue-600">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M8 12l2-2m0 0l2 2m-2-2v6m4-6l2-2m0 0l2 2m-2-2v6" />
-                        </svg>
-                        <a href="https://github.com/emrah2810" target="_blank"
-                            class="text-blue-600 hover:underline">GitHub</a>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                            stroke="currentColor" class="w-6 h-6 text-blue-600">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M16.5 3.5a4.5 4.5 0 00-9 0v1.25a4.5 4.5 0 00-3 4.25v6.5a4.5 4.5 0 004.5 4.5h6a4.5 4.5 0 004.5-4.5v-6.5a4.5 4.5 0 00-3-4.25V3.5z" />
-                        </svg>
-                        <span class="text-gray-700 font-medium">Telefoon: +31 6 12345678</span>
-                    </div>
-                </div>
+                        <span class="text-xs font-semibold">Copy</span>
+                    </span>
+                </button>
             </div>
-        </div>
-        <!-- Contact Image -->
-        <div class="flex-1">
-            <img src="../images/Emrah.jpeg" alt="Contact Image" class="rounded-lg shadow-lg w-full h-auto">
+            <!-- LinkedIn -->
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 11-12.728 0M12 3v9" />
+                </svg>
+                <a href="https://www.linkedin.com/in/emrah-balija-b32945273/" target="_blank"
+                    class="text-blue-600 hover:underline">LinkedIn</a>
+            </div>
+            <!-- GitHub -->
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M8 12l2-2m0 0l2 2m-2-2v6m4-6l2-2m0 0l2 2m-2-2v6" />
+                </svg>
+                <a href="https://github.com/emrah2810" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+            </div>
+            <!-- Phone -->
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.5 3.5a4.5 4.5 0 00-9 0v1.25a4.5 4.5 0 00-3 4.25v6.5a4.5 4.5 0 004.5 4.5h6a4.5 4.5 0 004.5-4.5v-6.5a4.5 4.5 0 00-3-4.25V3.5z" />
+                </svg>
+                <span class="text-gray-700 font-medium">Telefoon: +31 6 12345678</span>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4 mt-auto fixed bottom-0 w-full"></footer>
-        <p>&copy; 2025 Emrah Balija. Alle rechten voorbehouden.</p>
+
+
+    <footer class="bg-white rounded-lg shadow-sm dark:bg-gray-900 m-4">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="" class="h-8" alt="Emrah Logo" />
+                </a>
+                <ul
+                    class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a
+                    href="#" class="hover:underline">Emrah Balija</a>. All Rights Reserved.</span>
+        </div>
     </footer>
+
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -293,6 +388,38 @@
                 }
             });
         });
+
+
+        
+
+        window.addEventListener('load', function () {
+                const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'npm-install-copy-text');
+
+                const $defaultMessage = document.getElementById('default-message');
+                const $successMessage = document.getElementById('success-message');
+
+                clipboard.updateOnCopyCallback((clipboard) => {
+                    showSuccess();
+
+                    // reset to default state
+                    setTimeout(() => {
+                        resetToDefault();
+                    }, 2000);
+                })
+
+                const showSuccess = () => {
+                    $defaultMessage.classList.add('hidden');
+                    $successMessage.classList.remove('hidden');
+                }
+
+                const resetToDefault = () => {
+                    $defaultMessage.classList.remove('hidden');
+                    $successMessage.classList.add('hidden');
+                }
+            })
+
+
+
     </script>
 
 
