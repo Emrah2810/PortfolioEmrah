@@ -18,122 +18,254 @@
 
 <body class="bg-gradient-to-r from-blue-800 to-blue-300 text-gray-100 font-sans">
     <!-- Navigatie -->
-    <nav class="bg-transparent text-white fixed w-full z-10 font-sans"></nav>
-    <div class="container mx-auto flex justify-between items-center p-4">
-        <!-- Logo -->
-        <div class="text-2xl font-extrabold tracking-wide">
-            <a href="#home" class="hover:text-pink-400 transition duration-300">Mijn Portfolio</a>
+    <!-- Navbar -->
+    <nav class="bg-transparent text-white fixed w-full z-20 backdrop-blur-lg">
+        <div class="container mx-auto flex justify-between items-center px-6 py-4">
+            <!-- Logo -->
+            <div class="text-2xl font-extrabold tracking-wide drop-shadow-lg">
+                <a href="../Index.HTML" class="hover:text-pink-400 transition duration-300">Mijn Portfolio</a>
+            </div>
+            <!-- Hamburger Menu (Mobile) -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-3xl focus:outline-none">
+                    &#9776;
+                </button>
+            </div>
+            <!-- Navigation Links -->
+            <div id="menu" class="hidden md:flex space-x-8 font-semibold">
+                <a href="../Index.HTML" class="nav-link group relative hover:text-pink-400 transition duration-300">
+                    Home
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#projects" class="nav-link group relative hover:text-pink-400 transition duration-300">
+                    Projecten
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#contact" class="nav-link group relative hover:text-pink-400 transition duration-300">
+                    Contact
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
         </div>
-
-        <!-- Hamburger Menu (Mobile) -->
-        <div class="md:hidden">
-            <button id="menu-toggle" class="text-3xl focus:outline-none">
-                &#9776;
-            </button>
-        </div>
-
-        <!-- Navigation Links -->
-        <div id="menu" class="hidden md:flex space-x-6">
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 border-t border-blue-100 shadow-lg">
+        <div class="flex flex-col space-y-2 px-6 py-4">
             <a href="#home"
-                class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
-                Home
-                <span
-                    class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+                class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Home</a>
             <a href="#projects"
-                class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
-                Projecten
-                <span
-                    class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+                class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Projecten</a>
             <a href="#contact"
-                class="nav-link group relative hover:text-pink-400 transition duration-300 text-black font-bold">
-                Contact
-                <span
-                    class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+                class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Contact</a>
         </div>
     </div>
     </nav>
+    <script>
+        // Hamburger menu toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            toggle?.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Hide mobile menu on link click
+            document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 
 
     <!-- Header -->
-    <header id="home" class="h-screen bg-cover bg-center flex items-center justify-center"
+    <header id="home" class="min-h-[95vh] bg-cover bg-center flex items-center justify-center"
         style="background-image: url('https://placekitten.com/1920/1080');">
         <div
-            class="text-center bg-white bg-opacity-90 p-12 max-w-5xl w-full rounded-2xl shadow-2xl transform hover:scale-105 transition duration-500">
-            <div class="profile-pic mb-6">
+            class="bg-white bg-opacity-90 p-8 md:p-20 max-w-7xl w-full rounded-3xl shadow-2xl flex flex-col md:flex-row items-center md:items-stretch gap-12 md:gap-24">
+            <!-- Foto links -->
+            <div class="flex-shrink-0 flex items-center justify-center group relative"
+                style="width: 26rem; height: 26rem;">
+                <!-- Eerste foto -->
                 <img src="../images/Emrah.png" alt="Profiel Foto"
-                    class="w-80 h-80 rounded-full mx-auto border-4 border-gray-800 shadow-lg">
+                    class="w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full border-4 border-gray-800 shadow-xl object-cover transition-opacity duration-300 group-hover:opacity-0 absolute inset-0">
+                <!-- Tweede foto (zichtbaar bij hover) -->
+                <img src="../images/MuppetEmrah.png" alt="Profiel Foto 2"
+                    class="w-72 h-72 md:w-[26rem] md:h-[26rem] rounded-full border-4 border-gray-800 shadow-xl object-cover absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
             </div>
-            <h1 class="text-5xl font-extrabold mb-4 text-gray-900">Welkom! Ik ben <span class="text-blue-600">Emrah
-                    Balija</span></h1>
-            <p class="text-xl mb-6 text-gray-700">Webontwikkelaar met een passie voor moderne, responsieve en dynamische
-                websites.</p>
-            <div class="buttons space-x-6">
-                <a href="#projects"
-                    class="bg-blue-600 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300">Mijn
-                    Werk</a>
-                <a href="#contact"
-                    class="bg-gray-800 text-white px-8 py-4 rounded-lg shadow-lg hover:bg-gray-900 transition duration-300">Contact</a>
+            <!-- Over mij rechts -->
+            <div class="flex flex-col justify-center text-center md:text-left flex-1">
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-gray-900">
+                    Welkom! Ik ben <span class="text-blue-600">Emrah Balija</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-700">
+                    Webontwikkelaar met een passie voor moderne, responsieve en dynamische websites.<br>
+                    <span class="block mt-6">
+                        Ik ben gespecialiseerd in het bouwen van gebruiksvriendelijke webapplicaties met oog voor detail
+                        en design. Met ervaring in zowel front-end als back-end technologieën, streef ik ernaar om
+                        digitale oplossingen te creëren die écht het verschil maken.
+                    </span>
+                </p>
+                <div class="buttons space-x-8">
+                    <a href="#projects"
+                        class="bg-blue-600 text-white px-10 py-5 rounded-xl shadow-xl hover:bg-blue-700 transition duration-300 text-lg font-semibold">Mijn
+                        Werk</a>
+                    <a href="#contact"
+                        class="bg-gray-800 text-white px-10 py-5 rounded-xl shadow-xl hover:bg-gray-900 transition duration-300 text-lg font-semibold">Contact</a>
+                    <a href="../cv/EmrahBalijaCV.pdf" target="_blank" rel="noopener"
+                        class="bg-pink-600 text-white px-10 py-5 rounded-xl shadow-xl hover:bg-pink-700 transition duration-300 text-lg font-semibold">Mijn CV</a>
+                </div>
             </div>
         </div>
     </header>
+
+
+    <!-- Skills Level Bars (2 rijen van 3 naast elkaar) -->
+    <section class="bg-gradient-to-r from-blue-800 to-blue-300 py-10 px-2">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-8 text-center tracking-tight">Mijn Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- HTML & CSS -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-semibold text-white">HTML & CSS</span>
+                        <span class="text-xs font-medium text-pink-200">95%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-blue-500 to-pink-400 h-3 rounded-full" style="width: 95%">
+                        </div>
+                    </div>
+                </div>
+                <!-- JavaScript -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-semibold text-white">JavaScript</span>
+                        <span class="text-xs font-medium text-pink-200">90%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-yellow-400 to-pink-400 h-3 rounded-full" style="width: 90%">
+                        </div>
+                    </div>
+                </div>
+                <!-- React & Vue.js -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-semibold text-white">React & Vue.js</span>
+                        <span class="text-xs font-medium text-pink-200">35%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-blue-400 to-green-400 h-3 rounded-full" style="width: 35%">
+                        </div>
+                    </div>
+                </div>
+                <!-- Node.js & Express -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-semibold text-white">Node.js & Express</span>
+                        <span class="text-xs font-medium text-pink-200">75%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-green-400 to-blue-400 h-3 rounded-full" style="width: 75%">
+                        </div>
+                    </div>
+                </div>
+                <!-- Responsive Design -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-semibold text-white">Responsive Design</span>
+                        <span class="text-xs font-medium text-pink-200">95%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-pink-400 to-blue-400 h-3 rounded-full" style="width: 95%">
+                        </div>
+                    </div>
+                </div>
+                <!-- Teamwork & Agile -->
+                <div>
+                    <div class="flex justify-between mb-1">
+                        <span class="text-base font-semibold text-white">Teamwork & Agile</span>
+                        <span class="text-xs font-medium text-pink-200">85%</span>
+                    </div>
+                    <div class="w-full bg-white/30 rounded-full h-3">
+                        <div class="bg-gradient-to-r from-blue-400 to-purple-400 h-3 rounded-full" style="width: 85%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <!-- About Me -->
     <section id="about" class="bg-gradient-to-r from-blue-800 to-blue-300 py-20 px-4">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight drop-shadow-lg">Over Mij</h2>
-            <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                Hallo! Mijn naam is Emrah Balija, een gepassioneerde webontwikkelaar met een oog voor detail en een
-                liefde voor moderne technologieën. Ik streef ernaar om dynamische, responsieve en gebruiksvriendelijke websites te creëren die een blijvende indruk achterlaten.
-            </p>
             <div class="skills grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
+                <div
+                    class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
                         alt="HTML Icon" class="w-12 h-12 animate-bounce">
                     <div>
                         <h3 class="text-xl font-bold text-blue-800 mb-1">HTML & CSS</h3>
-                        <p class="text-gray-600 text-sm">Ervaren in het bouwen van semantische en goed gestructureerde webpagina's.</p>
+                        <p class="text-gray-600 text-sm">Ervaren in het bouwen van semantische en goed gestructureerde
+                            webpagina's.</p>
                     </div>
                 </div>
-                <div class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
+                <div
+                    class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
                         alt="JavaScript Icon" class="w-12 h-12 animate-bounce">
                     <div>
                         <h3 class="text-xl font-bold text-blue-800 mb-1">JavaScript</h3>
-                        <p class="text-gray-600 text-sm">Bekwaam in het toevoegen van interactiviteit en dynamiek aan websites.</p>
+                        <p class="text-gray-600 text-sm">Bekwaam in het toevoegen van interactiviteit en dynamiek aan
+                            websites.</p>
                     </div>
                 </div>
-                <div class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
+                <div
+                    class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                         alt="React Icon" class="w-12 h-12 animate-bounce">
                     <div>
                         <h3 class="text-xl font-bold text-blue-800 mb-1">React & Vue.js</h3>
-                        <p class="text-gray-600 text-sm">Ervaring met moderne frameworks voor het bouwen van schaalbare applicaties.</p>
+                        <p class="text-gray-600 text-sm">Ervaring met moderne frameworks voor het bouwen van schaalbare
+                            applicaties.</p>
                     </div>
                 </div>
-                <div class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
+                <div
+                    class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                         alt="Node.js Icon" class="w-12 h-12 animate-bounce">
                     <div>
                         <h3 class="text-xl font-bold text-blue-800 mb-1">Back-end Development</h3>
-                        <p class="text-gray-600 text-sm">Kennis van Node.js en Express voor server-side ontwikkeling.</p>
+                        <p class="text-gray-600 text-sm">Kennis van Node.js en Express voor server-side ontwikkeling.
+                        </p>
                     </div>
                 </div>
-                <div class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/responsive/responsive-original.svg"
-                        alt="Responsive Design Icon" class="w-12 h-12 animate-bounce">
+                <div
+                    class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
+                    <span class="flex space-x-2"></span>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 Icon"
+                        class="w-12 h-12 animate-bounce">
+                    </span>
                     <div>
                         <h3 class="text-xl font-bold text-blue-800 mb-1">Responsive Design</h3>
-                        <p class="text-gray-600 text-sm">Expertise in het maken van websites die er geweldig uitzien op elk apparaat.</p>
+                        <p class="text-gray-600 text-sm">Expertise in het maken van websites die er geweldig uitzien op
+                            elk apparaat.</p>
                     </div>
                 </div>
-                <div class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/agile/agile-original.svg"
-                        alt="Teamwork Icon" class="w-12 h-12 animate-bounce">
+                <div
+                    class="skill bg-white/90 rounded-xl shadow-xl p-6 flex items-center space-x-4 hover:scale-105 transition">
+                    <span class="flex space-x-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/users/users-original.svg"
+                            alt="Samenwerken Icon" class="w-12 h-12 animate-bounce">
+                    </span>
                     <div>
                         <h3 class="text-xl font-bold text-blue-800 mb-1">Teamwork</h3>
-                        <p class="text-gray-600 text-sm">Sterke samenwerkingsvaardigheden en ervaring met Agile-methodologieën.</p>
+                        <p class="text-gray-600 text-sm">Sterke samenwerkingsvaardigheden en ervaring met
+                            Agile-methodologieën.</p>
                     </div>
                 </div>
             </div>
@@ -144,163 +276,206 @@
                 <div class="w-full h-1 bg-gradient-to-r from-blue-500 to-pink-500 animate-pulse rounded-full"></div>
             </div>
             <div class="flex justify-between items-center relative z-10 max-w-3xl mx-auto px-2">
-                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-blue-400">
+                <span
+                    class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-blue-400">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
                         alt="HTML Icon" class="w-8 h-8">
                 </span>
-                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-yellow-400">
+                <span
+                    class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-yellow-400">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
                         alt="JavaScript Icon" class="w-8 h-8">
                 </span>
-                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-blue-500">
+                <span
+                    class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-blue-500">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
                         alt="React Icon" class="w-8 h-8">
                 </span>
-                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-green-400">
+                <span
+                    class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-green-400">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
                         alt="Node.js Icon" class="w-8 h-8">
                 </span>
-                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-pink-400">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/responsive/responsive-original.svg"
+                <span
+                    class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-pink-400">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
                         alt="Responsive Design Icon" class="w-8 h-8">
                 </span>
-                <span class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-purple-400">
+                <span
+                    class="w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-purple-400">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/agile/agile-original.svg"
                         alt="Agile Icon" class="w-8 h-8">
                 </span>
             </div>
         </div>
     </section>
-    <!-- Skills Level Bars (Kleiner) -->
-    <section class="bg-gradient-to-r from-blue-800 to-blue-300 py-10 px-2">
-        <div class="container mx-auto max-w-2xl">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-8 text-center tracking-tight">Mijn Skills</h2>
-            <div class="space-y-6">
-                <!-- HTML & CSS -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-base font-semibold text-white">HTML & CSS</span>
-                        <span class="text-xs font-medium text-pink-200">95%</span>
-                    </div>
-                    <div class="w-full bg-white/30 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-blue-500 to-pink-400 h-3 rounded-full" style="width: 95%"></div>
-                    </div>
-                </div>
-                <!-- JavaScript -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-base font-semibold text-white">JavaScript</span>
-                        <span class="text-xs font-medium text-pink-200">90%</span>
-                    </div>
-                    <div class="w-full bg-white/30 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-yellow-400 to-pink-400 h-3 rounded-full" style="width: 90%"></div>
-                    </div>
-                </div>
-                <!-- React & Vue.js -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-base font-semibold text-white">React & Vue.js</span>
-                        <span class="text-xs font-medium text-pink-200">80%</span>
-                    </div>
-                    <div class="w-full bg-white/30 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-blue-400 to-green-400 h-3 rounded-full" style="width: 80%"></div>
-                    </div>
-                </div>
-                <!-- Node.js & Express -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-base font-semibold text-white">Node.js & Express</span>
-                        <span class="text-xs font-medium text-pink-200">75%</span>
-                    </div>
-                    <div class="w-full bg-white/30 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-green-400 to-blue-400 h-3 rounded-full" style="width: 75%"></div>
-                    </div>
-                </div>
-                <!-- Responsive Design -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-base font-semibold text-white">Responsive Design</span>
-                        <span class="text-xs font-medium text-pink-200">95%</span>
-                    </div>
-                    <div class="w-full bg-white/30 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-pink-400 to-blue-400 h-3 rounded-full" style="width: 95%"></div>
-                    </div>
-                </div>
-                <!-- Teamwork & Agile -->
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-base font-semibold text-white">Teamwork & Agile</span>
-                        <span class="text-xs font-medium text-pink-200">85%</span>
-                    </div>
-                    <div class="w-full bg-white/30 rounded-full h-3">
-                        <div class="bg-gradient-to-r from-blue-400 to-purple-400 h-3 rounded-full" style="width: 85%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <!-- Projecten -->
-    <section id="projects" class="container mx-auto py-16 px-4">
-        <h2 class="text-4xl font-extrabold text-center mb-12 text-white">Mijn Projecten</h2>
-        <div class="project-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section id="projects" class="container mx-auto py-20 px-4">
+        <h2 class="text-4xl font-extrabold text-center mb-14 text-white tracking-tight drop-shadow-lg">Mijn Projecten
+        </h2>
+        <div class="project-gallery grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Project Card 1 -->
             <div
-                class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="../images/Tambien.png" alt="Project 1" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900"><a href="../peages/Project1.html">Project 1</a>
+                class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
+                <div class="overflow-hidden">
+                    <img src="../images/Tambien.png" alt="Project 1"
+                        class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col gap-2">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">
+                        <a href="../peages/Project1.html"
+                            class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-pink-400 after:transition-all after:duration-300 group-hover:after:w-full">Project
+                            1</a>
                     </h3>
-                    <p class="text-gray-600">Stage project</p>
+                    <p class="text-gray-600 mb-2">Stage project</p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-pink-100 text-pink-600 text-xs font-semibold px-3 py-1 rounded-full">CSS</span>
+                        <span
+                            class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">JavaScript</span>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <a href="../peages/Project1.html"
+                        class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
+                        Project</a>
                 </div>
             </div>
+
+
+            <!-- Project Card 2 -->
             <div
-                class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="../images/Tambien.png" alt="Project 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900"><a href="../peages/Project2.html">Project 2</a>
+                class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
+                <div class="overflow-hidden">
+                    <img src="../images/Tambien.png" alt="Project 2"
+                        class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col gap-2">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">
+                        <a href="../peages/Project2.html"
+                            class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-pink-400 after:transition-all after:duration-300 group-hover:after:w-full">Project
+                            2</a>
                     </h3>
-                    <p class="text-gray-600">Korte beschrijving van het project.</p>
+                    <p class="text-gray-600 mb-2">Korte beschrijving van het project.</p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">React</span>
+                        <span
+                            class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">API</span>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <a href="../peages/Project2.html"
+                        class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
+                        Project</a>
                 </div>
             </div>
 
+
+            <!-- Project Card 3 -->
             <div
-                class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://placekitten.com/402/300" alt="Project 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Project 3</h3>
-                    <p class="text-gray-600">Korte beschrijving van het project.</p>
+                class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
+                <div class="overflow-hidden">
+                    <img src="https://placekitten.com/402/300" alt="Project 3"
+                        class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col gap-2">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">Project 3
+                    </h3>
+                    <p class="text-gray-600 mb-2">Korte beschrijving van het project.</p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-yellow-100 text-yellow-700 text-xs font-semibold px-3 py-1 rounded-full">Vue.js</span>
+                        <span
+                            class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">Tailwind</span>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <button
+                        class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
+                        Project</button>
                 </div>
             </div>
-
+            <!-- Project Card 4 -->
             <div
-                class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://placekitten.com/402/300" alt="Project 4" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Project 4</h3>
-                    <p class="text-gray-600">Korte beschrijving van het project.</p>
+                class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
+                <div class="overflow-hidden">
+                    <img src="https://placekitten.com/402/300" alt="Project 4"
+                        class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col gap-2">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">Project 4
+                    </h3>
+                    <p class="text-gray-600 mb-2">Korte beschrijving van het project.</p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">Node.js</span>
+                        <span
+                            class="bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full">Express</span>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <button
+                        class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
+                        Project</button>
                 </div>
             </div>
-
+            <!-- Project Card 5 -->
             <div
-                class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://placekitten.com/402/300" alt="Project 5" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Project 5</h3>
-                    <p class="text-gray-600">Korte beschrijving van het project.</p>
+                class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
+                <div class="overflow-hidden">
+                    <img src="https://placekitten.com/402/300" alt="Project 5"
+                        class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col gap-2">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">Project 5
+                    </h3>
+                    <p class="text-gray-600 mb-2">Korte beschrijving van het project.</p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">Design</span>
+                        <span
+                            class="bg-pink-100 text-pink-600 text-xs font-semibold px-3 py-1 rounded-full">UI/UX</span>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <button
+                        class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
+                        Project</button>
                 </div>
             </div>
-
-
+            <!-- Project Card 6 -->
             <div
-                class="project bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-                <img src="https://placekitten.com/402/300" alt="Project 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2 text-gray-900">Project 3</h3>
-                    <p class="text-gray-600">Korte beschrijving van het project.</p>
+                class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
+                <div class="overflow-hidden">
+                    <img src="https://placekitten.com/402/300" alt="Project 6"
+                        class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+                <div class="p-6 flex flex-col gap-2">
+                    <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">Project 6
+                    </h3>
+                    <p class="text-gray-600 mb-2">Korte beschrijving van het project.</p>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full">Agile</span>
+                        <span
+                            class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">Teamwork</span>
+                    </div>
+                </div>
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                    <button
+                        class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
+                        Project</button>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -329,6 +504,19 @@
                     </span>
                 </button>
             </div>
+            <!-- Phone -->
+            <div
+                class="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-50 border border-blue-200 shadow font-semibold text-blue-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6 text-blue-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M2.25 6.75c0 7.042 5.708 12.75 12.75 12.75.966 0 1.75-.784 1.75-1.75v-2.25a1.75 1.75 0 0 0-1.75-1.75h-1.5a.75.75 0 0 1-.75-.75v-2.25a.75.75 0 0 1 .75-.75h1.5a1.75 1.75 0 0 0 1.75-1.75V6.75c0-.966-.784-1.75-1.75-1.75h-2.25A1.75 1.75 0 0 0 9.75 6.75v2.25a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V6.75C6 5.784 6.784 5 7.75 5h2.25A1.75 1.75 0 0 1 11.75 6.75v2.25a.75.75 0 0 0 .75.75h2.25a.75.75 0 0 0 .75-.75V6.75C15.5 5.784 14.716 5 13.75 5h-2.25A1.75 1.75 0 0 0 9.75 6.75v2.25a.75.75 0 0 1-.75.75H6.75a.75.75 0 0 1-.75-.75V6.75z" />
+                </svg>
+                <span>+31 6 40203562</span>
+            </div>
+        </div>
+        <!-- Social Media Links -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 w-full mt-4">
             <!-- LinkedIn -->
             <a href="https://www.linkedin.com/in/emrah-balija-b32945273/" target="_blank"
                 class="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-50 hover:bg-blue-100 border border-blue-200 shadow transition group">
@@ -349,16 +537,6 @@
                 </svg>
                 <span class="text-blue-700 font-semibold group-hover:underline">GitHub</span>
             </a>
-            <!-- Phone -->
-            <div
-                class="flex items-center gap-2 px-4 py-3 rounded-lg bg-blue-50 border border-blue-200 shadow font-semibold text-blue-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                    stroke="currentColor" class="w-6 h-6 text-blue-600">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M2.25 6.75c0 7.008 5.742 12.75 12.75 12.75M16.5 3.75v4.5a2.25 2.25 0 002.25 2.25h4.5" />
-                </svg>
-                <span>+31 6 40203562</span>
-            </div>
         </div>
     </section>
 
@@ -380,16 +558,17 @@
                 </li>
             </ul>
         </div>
-        <div class="border-t border-blue-800 mt-6 pt-4 text-center text-blue-200 text-xs"></div>
-            © 2025 <span class="font-bold">Emrah Balija</span>. All Rights Reserved.
+        <div class="border-t border-blue-800 mt-6 pt-4 flex justify-center">
+            <span class="text-center text-blue-200 text-xs">
+                © 2025 <span class="font-bold">Emrah Balija</span>. All Rights Reserved.
+            </span>
         </div>
     </footer>
 
-
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const sectionIds = ["home", "projects", "contact"];
+            // Voeg 'about' toe aan de sectie-IDs
+            const sectionIds = ["home", "about", "projects", "contact"];
 
             const scrollUpButton = document.getElementById("scroll-up");
             const scrollDownButton = document.getElementById("scroll-down");
@@ -434,6 +613,7 @@
                 const scrollPosition = window.scrollY + window.innerHeight / 2;
                 return sectionIds.findIndex(id => {
                     const section = document.getElementById(id);
+                    if (!section) return false;
                     const sectionTop = section.offsetTop;
                     const sectionBottom = sectionTop + section.offsetHeight;
                     return scrollPosition >= sectionTop && scrollPosition < sectionBottom;
@@ -456,9 +636,6 @@
                 }
             });
         });
-
-
-
 
         window.addEventListener('load', function () {
             const clipboard = FlowbiteInstances.getInstance('CopyClipboard', 'npm-install-copy-text');
@@ -485,11 +662,7 @@
                 $successMessage.classList.add('hidden');
             }
         })
-
-
-
     </script>
-
 
     <div class="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-6 z-50">
         <!-- Up Arrow -->
