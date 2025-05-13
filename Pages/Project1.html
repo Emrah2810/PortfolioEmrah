@@ -37,9 +37,8 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-blue-900 via-blue-700 to-blue-400 min-h-screen text-gray-100 font-sans">
+<body class="bg-gradient-to-r from-blue-800 to-blue-300 text-gray-100 font-sans">
 
-    <!-- Navbar -->
     <nav class="bg-transparent text-white fixed w-full z-20 backdrop-blur-lg">
         <div class="container mx-auto flex justify-between items-center px-6 py-4">
             <!-- Logo -->
@@ -53,22 +52,95 @@
                 </button>
             </div>
             <!-- Navigation Links -->
-            <div id="menu" class="hidden md:flex space-x-8 font-semibold">
+            <div id="menu" class="hidden md:flex space-x-8 font-semibold items-center">
                 <a href="../Index.HTML" class="nav-link group relative hover:text-pink-400 transition duration-300">
                     Home
-                    <span class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="../Index.HTML#projects" class="nav-link group relative hover:text-pink-400 transition duration-300">
-                    Projecten
-                    <span class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="../Index.HTML#contact" class="nav-link group relative hover:text-pink-400 transition duration-300">
+                <!-- Projecten Dropdown -->
+                <div class="relative group">
+                    <button class="nav-link group relative hover:text-pink-400 transition duration-300 flex items-center focus:outline-none">
+                        Projecten
+                        <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                        <span class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-56 bg-white text-blue-900 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-200 z-30">
+                        <a href="#projects" class="block px-6 py-3 hover:bg-blue-50 transition nav-link">Alle Projecten</a>
+                        <a href="../pages/Project1.html" class="block px-6 py-3 hover:bg-blue-50 transition">Project 1</a>
+                        <a href="../pages/Project2.html" class="block px-6 py-3 hover:bg-blue-50 transition">Project 2</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 3</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 4</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 5</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 6</a>
+                    </div>
+                </div>
+                <a href="#contact" class="nav-link group relative hover:text-pink-400 transition duration-300">
                     Contact
-                    <span class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    <span
+                        class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
             </div>
         </div>
     </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white/95 border-t border-blue-100 shadow-lg">
+        <div class="flex flex-col space-y-2 px-6 py-4">
+            <a href="#home"
+                class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Home</a>
+            <!-- Projecten Dropdown Mobile -->
+            <div class="relative">
+                <button id="mobile-projects-toggle" class="w-full flex justify-between items-center text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition focus:outline-none">
+                    Projecten
+                    <svg id="mobile-projects-arrow" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div id="mobile-projects-dropdown" class="hidden flex flex-col mt-1 ml-4 border-l border-blue-100">
+                    <a href="#projects" class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Alle Projecten</a>
+                    <a href="../pages/Project1.html" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 1</a>
+                    <a href="../pages/Project2.html" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 2</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 3</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 4</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 5</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 6</a>
+                </div>
+            </div>
+            <a href="#contact"
+                class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Contact</a>
+        </div>
+    </div>
+    </nav>
+    <script>
+        // Hamburger menu toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            toggle?.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+            // Hide mobile menu on link click
+            document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Mobile projecten dropdown
+            const mobileProjectsToggle = document.getElementById('mobile-projects-toggle');
+            const mobileProjectsDropdown = document.getElementById('mobile-projects-dropdown');
+            const mobileProjectsArrow = document.getElementById('mobile-projects-arrow');
+            if (mobileProjectsToggle && mobileProjectsDropdown && mobileProjectsArrow) {
+                mobileProjectsToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mobileProjectsDropdown.classList.toggle('hidden');
+                    mobileProjectsArrow.classList.toggle('rotate-180');
+                });
+            }
+        });
+    </script>
 
     <!-- Header -->
     <header class="pt-28 pb-8 text-center">

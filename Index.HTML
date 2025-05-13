@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mijn Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./Styles/Stylesheet.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8d7xj1z5l5e5e5e5e5e5e5e5e5e5e5e5e5" crossorigin="anonymous">
     <style>
-        /* Enable smooth scrolling for the entire page */
         html {
             overflow: auto;
-            /* of unset */
             height: auto;
         }
     </style>
 </head>
 
 <body class="bg-gradient-to-r from-blue-800 to-blue-300 text-gray-100 font-sans">
-    <!-- Navigatie -->
     <!-- Navbar -->
     <nav class="bg-transparent text-white fixed w-full z-20 backdrop-blur-lg">
         <div class="container mx-auto flex justify-between items-center px-6 py-4">
@@ -32,17 +31,31 @@
                 </button>
             </div>
             <!-- Navigation Links -->
-            <div id="menu" class="hidden md:flex space-x-8 font-semibold">
+            <div id="menu" class="hidden md:flex space-x-8 font-semibold items-center">
                 <a href="../Index.HTML" class="nav-link group relative hover:text-pink-400 transition duration-300">
                     Home
                     <span
                         class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
-                <a href="#projects" class="nav-link group relative hover:text-pink-400 transition duration-300">
-                    Projecten
-                    <span
-                        class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                <!-- Projecten Dropdown -->
+                <div class="relative group">
+                    <button class="nav-link group relative hover:text-pink-400 transition duration-300 flex items-center focus:outline-none">
+                        Projecten
+                        <svg class="ml-1 w-4 h-4 inline-block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                        <span class="absolute left-0 bottom-0 w-0 h-1 bg-pink-400 transition-all duration-300 group-hover:w-full"></span>
+                    </button>
+                    <div class="absolute left-0 mt-2 w-56 bg-white text-blue-900 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto transition-opacity duration-200 z-30">
+                        <a href="#projects" class="block px-6 py-3 hover:bg-blue-50 transition nav-link">Alle Projecten</a>
+                        <a href="../pages/Project1.html" class="block px-6 py-3 hover:bg-blue-50 transition">Project 1</a>
+                        <a href="../pages/Project2.html" class="block px-6 py-3 hover:bg-blue-50 transition">Project 2</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 3</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 4</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 5</a>
+                        <a href="#" class="block px-6 py-3 hover:bg-blue-50 transition">Project 6</a>
+                    </div>
+                </div>
                 <a href="#contact" class="nav-link group relative hover:text-pink-400 transition duration-300">
                     Contact
                     <span
@@ -56,8 +69,24 @@
         <div class="flex flex-col space-y-2 px-6 py-4">
             <a href="#home"
                 class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Home</a>
-            <a href="#projects"
-                class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Projecten</a>
+            <!-- Projecten Dropdown Mobile -->
+            <div class="relative">
+                <button id="mobile-projects-toggle" class="w-full flex justify-between items-center text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition focus:outline-none">
+                    Projecten
+                    <svg id="mobile-projects-arrow" class="ml-2 w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div id="mobile-projects-dropdown" class="hidden flex flex-col mt-1 ml-4 border-l border-blue-100">
+                    <a href="#projects" class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Alle Projecten</a>
+                    <a href="../pages/Project1.html" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 1</a>
+                    <a href="../pages/Project2.html" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 2</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 3</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 4</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 5</a>
+                    <a href="#" class="text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Project 6</a>
+                </div>
+            </div>
             <a href="#contact"
                 class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Contact</a>
         </div>
@@ -77,6 +106,18 @@
                     mobileMenu.classList.add('hidden');
                 });
             });
+
+            // Mobile projecten dropdown
+            const mobileProjectsToggle = document.getElementById('mobile-projects-toggle');
+            const mobileProjectsDropdown = document.getElementById('mobile-projects-dropdown');
+            const mobileProjectsArrow = document.getElementById('mobile-projects-arrow');
+            if (mobileProjectsToggle && mobileProjectsDropdown && mobileProjectsArrow) {
+                mobileProjectsToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mobileProjectsDropdown.classList.toggle('hidden');
+                    mobileProjectsArrow.classList.toggle('rotate-180');
+                });
+            }
         });
     </script>
 
@@ -115,13 +156,98 @@
                         Werk</a>
                     <a href="#contact"
                         class="bg-gray-800 text-white px-10 py-5 rounded-xl shadow-xl hover:bg-gray-900 transition duration-300 text-lg font-semibold">Contact</a>
-                    <a href="../cv/EmrahBalijaCV.pdf" target="_blank" rel="noopener"
+                    <a href="./cv/EmrahCV.pdf" target="_blank" rel="noopener"
                         class="bg-pink-600 text-white px-10 py-5 rounded-xl shadow-xl hover:bg-pink-700 transition duration-300 text-lg font-semibold">Mijn CV</a>
                 </div>
             </div>
         </div>
     </header>
+    <!-- Werkervaring (Nieuwe Styling) -->
+    <section id="experience" class="relative py-20 px-4 bg-gradient-to-r from-blue-800 to-blue-300"></section>
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center tracking-tight drop-shadow-lg">
+                <span class=" text-white">Werkervaring</span>
+            </h2>
+            <div class="relative border-l-4 border-pink-400/70 pl-8 space-y-16">
+                <!-- Timeline Line Accent -->
+                <div class="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-pink-400/70 via-blue-400/70 to-pink-400/70 rounded-full"></div>
+                <!-- Werkervaring 1 -->
+                <div class="relative group">
+                    <div class="absolute -left-6 top-2 w-8 h-8 rounded-full bg-white border-4 border-pink-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                        <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-pink-400/60 transition group-hover:shadow-pink-200/40">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                            <span class="inline-block bg-gradient-to-r from-blue-700 to-pink-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md mb-3 md:mb-0">
+                                Feb 2025 - Heden
+                            </span>
+                            <span class="text-pink-500 font-semibold text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6a2 2 0 0 1 2-2h2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Tambien, Tilburg
+                            </span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Stagiair Webontwikkelaar</h3>
+                        <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1 w-2 h-2 bg-pink-400 rounded-full"></span>
+                                Ontwikkelen van <span class="font-semibold text-blue-700">Umbraco</span> websites
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1 w-2 h-2 bg-pink-400 rounded-full"></span>
+                                Werken met <span class="font-semibold text-blue-700">HTML, CSS, JavaScript</span> en <span class="font-semibold text-blue-700">C#</span> in een Agile team.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Werkervaring 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-6 top-2 w-8 h-8 rounded-full bg-white border-4 border-blue-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-blue-400/60 transition group-hover:shadow-blue-200/40">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                            <span class="inline-block bg-gradient-to-r from-blue-700 to-blue-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md mb-3 md:mb-0">
+                                Mrt 2024 - Heden
+                            </span>
+                            <span class="text-blue-500 font-semibold text-lg flex items-center gap-2">
+                                <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                PLUS, Loon op Zand
+                            </span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Teamleider</h3>
+                        <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                Aansturen van de vulploeg
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                Controleren van de winkel
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="mt-1 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                Klantenservice
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Extra spacing between sections -->
+    <div class="py-12 md:py-20"></div>
 
     <!-- Skills Level Bars (2 rijen van 3 naast elkaar) -->
     <section class="bg-gradient-to-r from-blue-800 to-blue-300 py-10 px-2">
@@ -325,11 +451,11 @@
                 </div>
                 <div class="p-6 flex flex-col gap-2">
                     <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">
-                        <a href="../peages/Project1.html"
-                            class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-pink-400 after:transition-all after:duration-300 group-hover:after:w-full">Project
-                            1</a>
+                        <a href="../pages/Project1.html"
+                            class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-pink-400 after:transition-all after:duration-300 group-hover:after:w-full">Umbraco Stage
+                            </a>
                     </h3>
-                    <p class="text-gray-600 mb-2">Stage project</p>
+                    <p class="text-gray-600 mb-2">Umbraco Opdracht voor stage</p>
                     <div class="flex flex-wrap gap-2 mt-2">
                         <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">HTML</span>
                         <span class="bg-pink-100 text-pink-600 text-xs font-semibold px-3 py-1 rounded-full">CSS</span>
@@ -339,7 +465,7 @@
                 </div>
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <a href="../peages/Project1.html"
+                    <a href="../pages/Project1.html"
                         class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
                         Project</a>
                 </div>
@@ -355,7 +481,7 @@
                 </div>
                 <div class="p-6 flex flex-col gap-2">
                     <h3 class="text-2xl font-bold text-blue-800 mb-1 group-hover:text-pink-500 transition">
-                        <a href="../peages/Project2.html"
+                        <a href="../pages/Project2.html"
                             class="relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-1 after:bg-pink-400 after:transition-all after:duration-300 group-hover:after:w-full">Project
                             2</a>
                     </h3>
@@ -369,7 +495,7 @@
                 </div>
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-blue-700/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <a href="../peages/Project2.html"
+                    <a href="../pages/Project2.html"
                         class="w-full text-center py-3 bg-pink-500/90 text-white font-bold rounded-b-2xl opacity-90 hover:bg-pink-600 transition">Bekijk
                         Project</a>
                 </div>
@@ -380,7 +506,7 @@
             <div
                 class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
                 <div class="overflow-hidden">
-                    <img src="https://placekitten.com/402/300" alt="Project 3"
+                    <img src="./images/Soon.png" alt="Project 3"
                         class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
                 <div class="p-6 flex flex-col gap-2">
@@ -405,7 +531,7 @@
             <div
                 class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
                 <div class="overflow-hidden">
-                    <img src="https://placekitten.com/402/300" alt="Project 4"
+                    <img src="./images/Soon.png" alt="Project 4"
                         class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
                 <div class="p-6 flex flex-col gap-2">
@@ -430,7 +556,7 @@
             <div
                 class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
                 <div class="overflow-hidden">
-                    <img src="https://placekitten.com/402/300" alt="Project 5"
+                    <img src="./images/Soon.png" alt="Project 5"
                         class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
                 <div class="p-6 flex flex-col gap-2">
@@ -455,7 +581,7 @@
             <div
                 class="group relative bg-white rounded-2xl shadow-2xl overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-3xl border border-blue-100">
                 <div class="overflow-hidden">
-                    <img src="https://placekitten.com/402/300" alt="Project 6"
+                    <img src="./images/Soon.png" alt="Project 6"
                         class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110">
                 </div>
                 <div class="p-6 flex flex-col gap-2">
