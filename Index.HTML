@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
-
+<head></head>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,12 +22,16 @@
         <div class="container mx-auto flex justify-between items-center px-6 py-4">
             <!-- Logo -->
             <div class="text-2xl font-extrabold tracking-wide drop-shadow-lg">
-                <img src="../images/logo/logo.png" alt="Logo Emrah Balija" class="w-12 h-12 rounded-full border-2 border-white shadow-lg object-cover inline-block align-middle" />
+                <a href="../Index.HTML" title="Home">
+                    <img src="../images/logo/logo.png" alt="Logo Emrah Balija" class="w-12 h-12 rounded-full border-2 border-white shadow-lg object-cover inline-block align-middle" />
+                </a>
             </div>
             <!-- Hamburger Menu (Mobile) -->
             <div class="md:hidden">
                 <button id="menu-toggle" class="text-3xl focus:outline-none">
-                    &#9776;
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="black" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
                 </button>
             </div>
             <!-- Navigation Links -->
@@ -64,9 +68,12 @@
             </div>
         </div>
     </nav>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white/95 border-t border-blue-100 shadow-lg">
-        <div class="flex flex-col space-y-2 px-6 py-4">
+    <!-- Mobile Menu (Slide-in Overlay) -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 md:hidden transform translate-x-full transition-transform duration-300 bg-white/95 border-l border-blue-100 shadow-lg">
+        <div class="flex flex-col space-y-2 px-6 py-8 h-full relative">
+            <button id="mobile-menu-close" class="absolute top-4 right-6 text-3xl text-blue-800 focus:outline-none">
+                &times;
+            </button>
             <a href="#home"
                 class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Home</a>
             <!-- Projecten Dropdown Mobile -->
@@ -91,19 +98,27 @@
                 class="nav-link text-blue-800 font-semibold py-2 rounded hover:bg-blue-50 transition">Contact</a>
         </div>
     </div>
-    </nav>
     <script>
         // Hamburger menu toggle
         document.addEventListener('DOMContentLoaded', function () {
             const toggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            // Open menu
             toggle?.addEventListener('click', function () {
-                mobileMenu.classList.toggle('hidden');
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            });
+            // Close menu
+            closeBtn?.addEventListener('click', function () {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
             });
             // Hide mobile menu on link click
             document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
                 });
             });
 
@@ -162,88 +177,162 @@
             </div>
         </div>
     </header>
-    <!-- Werkervaring (Nieuwe Styling) -->
-    <section id="experience" class="relative py-20 px-4 bg-gradient-to-r from-blue-800 to-blue-300"></section>
+    <!-- Werkervaring (Verbeterde Styling, zonder lijnen, met extra ruimte tussen blokken) -->
+    <section id="experience" class="relative py-20 px-4 bg-gradient-to-r from-blue-800 to-blue-300">
         <div class="container mx-auto max-w-5xl">
             <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center tracking-tight drop-shadow-lg">
-                <span class=" text-white">Werkervaring</span>
+                Werkervaring
             </h2>
-            <div class="relative border-l-4 border-pink-400/70 pl-8 space-y-16">
-                <!-- Timeline Line Accent -->
-                <div class="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-pink-400/70 via-blue-400/70 to-pink-400/70 rounded-full"></div>
-                <!-- Werkervaring 1 -->
-                <div class="relative group">
-                    <div class="absolute -left-6 top-2 w-8 h-8 rounded-full bg-white border-4 border-pink-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-                        <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-pink-400/60 transition group-hover:shadow-pink-200/40">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                            <span class="inline-block bg-gradient-to-r from-blue-700 to-pink-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md mb-3 md:mb-0">
-                                Feb 2025 - Heden
-                            </span>
-                            <span class="text-pink-500 font-semibold text-lg flex items-center gap-2">
-                                <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6a2 2 0 0 1 2-2h2"/>
+            <div class="relative pl-0 md:pl-8">
+                <div class="space-y-12 md:space-y-16">
+                    <!-- Werkervaring 1 -->
+                    <div class="relative flex md:pl-12 group">
+                        <div class="hidden md:flex flex-col items-center mr-8">
+                            <div class="w-8 h-8 rounded-full bg-white border-4 border-pink-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                                <svg class="w-5 h-5 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                     <circle cx="12" cy="7" r="4"/>
                                 </svg>
-                                Tambien, Tilburg
-                            </span>
+                            </div>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Stagiair Webontwikkelaar</h3>
-                        <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-2 h-2 bg-pink-400 rounded-full"></span>
-                                Ontwikkelen van <span class="font-semibold text-blue-700">Umbraco</span> websites
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-2 h-2 bg-pink-400 rounded-full"></span>
-                                Werken met <span class="font-semibold text-blue-700">HTML, CSS, JavaScript</span> en <span class="font-semibold text-blue-700">C#</span> in een Agile team.
-                            </li>
-                        </ul>
+                        <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-pink-400/60 transition group-hover:shadow-pink-200/40 w-full">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
+                                <span class="inline-block bg-gradient-to-r from-blue-700 to-pink-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md">
+                                    Feb 2025 - Heden
+                                </span>
+                                <span class="text-pink-500 font-semibold text-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6a2 2 0 0 1 2-2h2"/>
+                                        <circle cx="12" cy="7" r="4"/>
+                                    </svg>
+                                    Tambien, Tilburg
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Stagiair Webontwikkelaar</h3>
+                            <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-pink-400 rounded-full"></span>
+                                    Ontwikkelen van <span class="font-semibold text-blue-700 ml-1">Umbraco</span> websites
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-pink-400 rounded-full"></span>
+                                    Werken met <span class="font-semibold text-blue-700 ml-1">HTML, CSS, JavaScript</span> en <span class="font-semibold text-blue-700">C#</span> in een Agile team.
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- Werkervaring 2 -->
-                <div class="relative group">
-                    <div class="absolute -left-6 top-2 w-8 h-8 rounded-full bg-white border-4 border-blue-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
-                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
-                    <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-blue-400/60 transition group-hover:shadow-blue-200/40">
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                            <span class="inline-block bg-gradient-to-r from-blue-700 to-blue-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md mb-3 md:mb-0">
-                                Mrt 2024 - Heden
-                            </span>
-                            <span class="text-blue-500 font-semibold text-lg flex items-center gap-2">
-                                <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                    <!-- Werkervaring 2 -->
+                    <div class="relative flex md:pl-12 group">
+                        <div class="hidden md:flex flex-col items-center mr-8">
+                            <div class="w-8 h-8 rounded-full bg-white border-4 border-blue-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
                                 </svg>
-                                PLUS, Loon op Zand
-                            </span>
+                            </div>
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Teamleider</h3>
-                        <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-2 h-2 bg-blue-400 rounded-full"></span>
-                                Aansturen van de vulploeg
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-2 h-2 bg-blue-400 rounded-full"></span>
-                                Controleren van de winkel
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="mt-1 w-2 h-2 bg-blue-400 rounded-full"></span>
-                                Klantenservice
-                            </li>
-                        </ul>
+                        <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-blue-400/60 transition group-hover:shadow-blue-200/40 w-full">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
+                                <span class="inline-block bg-gradient-to-r from-blue-700 to-blue-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md">
+                                    Mrt 2024 - Heden
+                                </span>
+                                <span class="text-blue-500 font-semibold text-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    PLUS, Loon op Zand
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Teamleider</h3>
+                            <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                    Aansturen van de vulploeg
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                    Controleren van de winkel
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-blue-400 rounded-full"></span>
+                                    Klantenservice
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Werkervaring 3 -->
+                    <div class="relative flex md:pl-12 group">
+                        <div class="hidden md:flex flex-col items-center mr-8">
+                            <div class="w-8 h-8 rounded-full bg-white border-4 border-green-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422A12.083 12.083 0 0 1 21 13.477V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5.523a12.083 12.083 0 0 1 2.84-2.899L12 14z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-green-400/60 transition group-hover:shadow-green-200/40 w-full">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
+                                <span class="inline-block bg-gradient-to-r from-green-400 to-blue-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md">
+                                    Sep 2022 - Feb 2024
+                                </span>
+                                <span class="text-green-500 font-semibold text-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2 2 4-4"/>
+                                    </svg>
+                                    Jumbo, Tilburg
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Vulploegmedewerker</h3>
+                            <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-green-400 rounded-full"></span>
+                                    Voorraadbeheer en schapindeling
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-green-400 rounded-full"></span>
+                                    Klantgericht werken en service verlenen
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Werkervaring 4 -->
+                    <div class="relative flex md:pl-12 group">
+                        <div class="hidden md:flex flex-col items-center mr-8">
+                            <div class="w-8 h-8 rounded-full bg-white border-4 border-yellow-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                                <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8M12 8v8"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 border border-blue-200/40 hover:border-yellow-400/60 transition group-hover:shadow-yellow-200/40 w-full">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2 gap-2">
+                                <span class="inline-block bg-gradient-to-r from-yellow-400 to-pink-400 text-white text-base font-bold px-5 py-2 rounded-full shadow-md">
+                                    Jun 2021 - Aug 2022
+                                </span>
+                                <span class="text-yellow-500 font-semibold text-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-yellow-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h8M12 8v8"/>
+                                    </svg>
+                                    Albert Heijn, Tilburg
+                                </span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-blue-800 mb-3">Kassamedewerker</h3>
+                            <ul class="list-none space-y-2 text-gray-700 text-base pl-0">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-yellow-400 rounded-full"></span>
+                                    Afrekenen en kassawerkzaamheden
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-2 w-2 h-2 bg-yellow-400 rounded-full"></span>
+                                    Klantvriendelijkheid en servicegerichtheid
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </section>
@@ -669,7 +758,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-8 mt-20 shadow-inner">
+    <footer class="bg-gradient-to-r from-blue-900 to-blue-700 </header>text-white py-8 mt-20 shadow-inner">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
             <div class="flex items-center space-x-3 mb-4 md:mb-0">
                 <span class="text-2xl font-extrabold tracking-wide">Emrah Balija</span>
