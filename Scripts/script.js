@@ -1,4 +1,39 @@
-    
+      // Hamburger menu toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeBtn = document.getElementById('mobile-menu-close');
+            // Open menu
+            toggle?.addEventListener('click', function () {
+                mobileMenu.classList.remove('translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            });
+            // Close menu
+            closeBtn?.addEventListener('click', function () {
+                mobileMenu.classList.add('translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
+            });
+            // Hide mobile menu on link click
+            document.querySelectorAll('#mobile-menu .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                });
+            });
+
+            // Mobile projecten dropdown
+            const mobileProjectsToggle = document.getElementById('mobile-projects-toggle');
+            const mobileProjectsDropdown = document.getElementById('mobile-projects-dropdown');
+            const mobileProjectsArrow = document.getElementById('mobile-projects-arrow');
+            if (mobileProjectsToggle && mobileProjectsDropdown && mobileProjectsArrow) {
+                mobileProjectsToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    mobileProjectsDropdown.classList.toggle('hidden');
+                    mobileProjectsArrow.classList.toggle('rotate-180');
+                });
+            }
+        });
+
         document.addEventListener("DOMContentLoaded", () => {
             // Voeg 'about' en 'experience' toe aan de sectie-IDs
             const sectionIds = ["home", "experience", "about" , "projects", "contact"];
@@ -95,4 +130,9 @@
                 $defaultMessage?.classList.remove('hidden');
                 $successMessage?.classList.add('hidden');
             }
-        })
+        });
+
+
+
+
+   
